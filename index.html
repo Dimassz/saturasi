@@ -947,6 +947,10 @@
     }
 
     .svc-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 36px 30px;
@@ -976,15 +980,24 @@
       font-size: 1.15rem;
       font-weight: 700;
       color: var(--black);
-      margin-bottom: 10px;
+      margin-bottom: 4px;
       letter-spacing: -.01em
+    }
+
+    .svc-sub {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 14px;
+      letter-spacing: .01em
     }
 
     .svc-desc {
       font-size: .85rem;
       color: var(--mid-gray);
       line-height: 1.7;
-      margin-bottom: 28px
+      margin-bottom: 28px;
+      flex: 1
     }
 
     .svc-link {
@@ -2142,7 +2155,13 @@
       }
 
       .svc-name {
-        font-size: 1.05rem
+        font-size: 1.05rem;
+        margin-bottom: 2px
+      }
+
+      .svc-sub {
+        font-size: .78rem;
+        margin-bottom: 12px
       }
 
       .svc-link {
@@ -2334,6 +2353,11 @@
 
       .svc-img {
         height: 110px
+      }
+
+      .svc-sub {
+        font-size: .75rem;
+        margin-bottom: 8px
       }
 
 
@@ -2950,8 +2974,10 @@
   <!-- ════ SERVICES ════ -->
   <section class="services-section" id="services">
     <div class="container">
-      <div class="sec-label reveal">What We Do</div>
-      <h2 class="program-title reveal">Our Services</h2>
+      <div class="text-center">
+        <div class="sec-label reveal">What We Do</div>
+        <h2 class="program-title reveal">Our Services</h2>
+      </div>
       <div class="row g-4">
 
         <!-- T-Shirt -->
@@ -2969,14 +2995,12 @@
                 <!-- main tee body center -->
                 <img src="/images/IMG_1360.avif" alt="Tee Garment"
                   style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-sm);filter:drop-shadow(0 6px 10px rgba(0,0,0,.1))">
-                <!-- label bottom -->
-                <text x="140" y="148" text-anchor="middle" font-family="'Syne',sans-serif" font-size="7"
-                  letter-spacing="3" fill="rgba(255,255,255,.12)">T-SHIRT COLLECTION</text>
               </svg>
             </div>
-            <div class="svc-name">T-Shirt Production</div>
-            <div class="svc-desc">Produksi kaos premium dari cutting, sewing, hingga finishing dengan material pilihan
-              dan kontrol kualitas ketat.</div>
+            <div class="svc-name">Apparel Production</div>
+            <div class="svc-sub">Scale Your Production with Confidence.</div>
+            <div class="svc-desc">Dari produksi skala kecil hingga mass production, kami memastikan setiap produk dibuat
+              dengan standar kualitas yang konsisten, efisien, dan siap memenuhi kebutuhan pertumbuhan brand Anda.</div>
             <a href="#contact" class="svc-link">Order now <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
@@ -2985,12 +3009,13 @@
         <div class="col-sm-6 col-lg-3 reveal d1">
           <div class="svc-card">
             <div class="svc-img" style="background:#1a1a1a">
-              <img src="/images/IMG_0519.avif" alt="Tee Garment"
+              <img src="/images/sampel_development.avif" alt="Tee Garment"
                 style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-sm);filter:drop-shadow(0 6px 10px rgba(0,0,0,.1))">
             </div>
-            <div class="svc-name">Hoodie &amp; Crewneck</div>
-            <div class="svc-desc">Hoodie dan crewneck custom dengan fleece berkualitas. Cocok untuk brand streetwear dan
-              merchandise premium.</div>
+            <div class="svc-name">Development & Sampling</div>
+            <div class="svc-sub">Transform Your Ideas Into Market-Ready Apparel.</div>
+            <div class="svc-desc">Dari konsep hingga sampel produksi, kami membantu brand Anda mengembangkan produk yang
+              siap dipasarkan dengan standar kualitas yang terukur dan profesional</div>
             <a href="#contact" class="svc-link">Order now <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
@@ -3002,15 +3027,16 @@
               <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 280 160" fill="none"
                 preserveAspectRatio="xMidYMid meet">
                 <!-- screen printing frame + squeegee visual -->
-                <img src="/images/IMG_1355.avif" alt="Tee Garment"
+                <img src="/images/OURSERVICES_SCREENPRINT.avif" alt="Tee Garment"
                   style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-sm);filter:drop-shadow(0 6px 10px rgba(0,0,0,.1))">
                 <text x="140" y="152" text-anchor="middle" font-family="'Syne',sans-serif" font-size="7"
                   letter-spacing="3" fill="rgba(0,0,0,.25)">SCREEN PRINTING</text>
               </svg>
             </div>
-            <div class="svc-name">Screen Printing</div>
-            <div class="svc-desc">Sablon plastisol, water-based, DTF, dan rubber dengan detail tinggi, warna vivid, dan
-              ketahanan terbaik.</div>
+            <div class="svc-name">Screen Priting</div>
+            <div class="svc-sub">Where Quality Meets Every Print.</div>
+            <div class="svc-desc">Dengan teknik dan standar produksi yang terkontrol, kami menghasilkan cetakan yang
+              tajam, tahan lama, dan mampu merepresentasikan karakter brand secara maksimal.</div>
             <a href="#contact" class="svc-link">Order now <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
@@ -3022,15 +3048,16 @@
               <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 280 160" fill="none"
                 preserveAspectRatio="xMidYMid meet">
                 <!-- tote bag -->
-                <img src="/images/IMG_1383.avif" alt="Tee Garment"
+                <img src="/images/merchandise.avif" alt="Tee Garment"
                   style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-sm);filter:drop-shadow(0 6px 10px rgba(0,0,0,.1))">
                 <text x="140" y="152" text-anchor="middle" font-family="'Syne',sans-serif" font-size="7"
                   letter-spacing="3" fill="rgba(0,0,0,.2)">MERCHANDISE</text>
               </svg>
             </div>
-            <div class="svc-name">Merchandise</div>
-            <div class="svc-desc">Merchandise custom untuk event, komunitas, dan brand. Topi, totebag, dan berbagai
-              produk pilihan lainnya.</div>
+            <div class="svc-name">Corporate & Community Merchandise</div>
+            <div class="svc-sub">Represents Your Identity.</div>
+            <div class="svc-desc">Dari seragam perusahaan hingga apparel komunitas, kami membantu menciptakan produk
+              berkualitas yang memperkuat identitas, dan membangun kebersamaan</div>
             <a href="#contact" class="svc-link">Order now <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
