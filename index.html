@@ -6991,6 +6991,19 @@
       if (!validSablons.includes(currentSablon)) csablon.value = validSablons[0];
     }
 
+    function adjustMOQ() {
+      const mat = cmat.value;
+      const sablon = csablon.value;
+      let qty = parseInt(cqty.value) || 0;
+      if (EXACT_PRICELIST[mat]) {
+        if (sablon === 'discharge' && qty < 36) {
+          cqty.value = 36;
+        } else if (['plastisol', 'rubber', 'embroidery'].includes(sablon) && qty < 24) {
+          cqty.value = 24;
+        }
+      }
+    }
+
     function calcHPP() {
       const qty = parseInt(cqty.value) || 0;
       if (qty < 12) {
@@ -7009,7 +7022,11 @@
           return;
         }
 
-        const range = getQtyRange(qty);
+        let range = getQtyRange(qty);
+        if (sablon === 'discharge' && qty >= 36 && qty <= 49) {
+          range = '50-100';
+        }
+
         if (range && EXACT_PRICELIST[mat][range]) {
           const price = EXACT_PRICELIST[mat][range][sablon];
           if (price !== undefined && price !== null) {
@@ -7039,11 +7056,12 @@
       }
     }
 
-    cprod.addEventListener('change', () => { updateOptions(); calcHPP() });
-    cmat.addEventListener('change', calcHPP);
-    csablon.addEventListener('change', calcHPP);
+    cprod.addEventListener('change', () => { updateOptions(); adjustMOQ(); calcHPP() });
+    cmat.addEventListener('change', () => { adjustMOQ(); calcHPP() });
+    csablon.addEventListener('change', () => { adjustMOQ(); calcHPP() });
     cqty.addEventListener('input', calcHPP);
-    updateOptions(); calcHPP();
+    cqty.addEventListener('blur', () => { adjustMOQ(); calcHPP() });
+    updateOptions(); adjustMOQ(); calcHPP();
 
     /* Smooth scroll */
     document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const t = document.querySelector(a.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }) } }));
